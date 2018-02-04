@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Message in the blockchain</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div id="meta-mask-required"></div>
+    <div class="center">
+	    <p style=" position: absolute; top: 0; left: 0; width: 100%; color: white; font-size: 1rem; text-align: center;">Latest message:</p>
+        <div id="top">
+            <h1 id='currentText'></h1>
+        </div>
+        <hr>
+        <div id="bottom">
+            <h3></h3>
+            <h3 id='mostSent'></h3>
+
+            <h3> Immortalize your message on the blockchain, forever. This is an automated system which nobody can turn off. | <a href="./faq.html">FAQ</a></h3>
+            <label>
+            <div style="width: 30%; margin: auto;">
+		    <form style="float:left;">
+			<h3>Message:</h3>
+			<input type="text" id="inputText"></input>
+		    </form>
+		    <form style="float: right;">
+			<div style="float: left;">
+			<h3>ETH:</h3>
+			<input type="text" id="amount"></input>
+			</div>
+			<buttonbody>
+		            <button class="snip1544" onclick="send()">Blockchain it!</button>
+			</buttonbody>
+		    </form>
+	    </div>
+        </label>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="app.js"></script>
+
+<script>
+    //  document.addEventListener('DOMContentLoaded', function() {
+    //  });
+    window.onload = function() {
+        if (typeof Web3 === 'undefined') {
+            document.getElementById('meta-mask-required').innerHTML = 'You need <a href="https://metamask.io/">MetaMask</a> browser plugin to run this example'
+        }
+    }
+
+    function send() {
+        inputText = document.getElementById("inputText").value
+	amount = document.getElementById("amount").value
+        if (inputText.length > 64) {
+            alert("Maximum text size is 64 characters!")
+        } else {
+            abi = JSON.parse('[ { "constant": false, "inputs": [ { "name": "newText", "type": "string" } ], "name": "setText", "outputs": [ { "name": "", "type": "bool" } ], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [], "name": "mostSent", "outputs": [ { "name": "", "type": "uint256", "value": "1000000000000000000" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "currentText", "outputs": [ { "name": "", "type": "string", "value": "awefjasdfaj" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" } ]')
+            contractInstance = web3.eth.contract(abi).at('0x06eA246C7Ea2E6952c65f50e1b00059aAC626753');
+            contractInstance.setText(inputText, {
+                from: web3.eth.accounts[0],
+                gas: 4000000,
+                value: amount*10**18
+            }, function(error, a) {
+                console.log(error, a)
+            })
+            document.getElementById("amount").value = ""
+        }
+    }
+</script>
+
+</html>
