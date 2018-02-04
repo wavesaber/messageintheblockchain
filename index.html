@@ -51,14 +51,13 @@
     //  document.addEventListener('DOMContentLoaded', function() {
     //  });
     window.onload = function () {
-        if (typeof Web3 === 'undefined') {
-            document.getElementById('meta-mask-required').innerHTML = 'You need <a href="https://metamask.io/">MetaMask</a> browser plugin to run this example'
+        if (typeof web3 === 'undefined') {
+            alert('You need the https://metamask.io/ browser plugin to be able to experience the blockchain vibes :)')
         }
     }
 
     function send() {
         var amount = window.prompt("ETH:")
-        alert(amount)
         inputText = document.getElementById("inputText").value
         if (inputText.length > 50) {
             alert("Maximum text size is 50 characters!")
