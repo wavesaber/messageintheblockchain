@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
     <title>Message in the blockchain</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/style2.css">
 </head>
 
-<body>
+<body background="bg.png">
     <div id="meta-mask-required"></div>
-    <body background="bg.png">
-	<div class="tagline">
-	<p class="tagline__text wide-letter-spacing">THE BACKBONE OF BULLSHIT IS HERE</p>
-	</div>
-	    <br>
-	    <br>
-            <div style="align-self: center; min-height: 20vh; box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.3); width: 100vw; background: rgba(0,0,0,0.3)">
-                <h1 id='currentText'></h1>
-	    </div>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-     
-	    <h3> This could be your message. Pay more than the previous idiot.  </h3>
-			<input type="text" id="inputText", placeholder="Put your fucking message here..."></input>
-			<div style="float: left; align-self: center;">
-			<br>
-			<buttonbody style="align-self: center;">	            
-			<button class="snip1544" onclick="send()">Blockchain it!</button>
-			</buttonbody>
-			<buttonbody style="align-self: center;">	            
-			<button class="snip1544" onclick="send()">I'm feeling lucky</button>
-			</buttonbody>
-            <h3 id='mostSent'></h3>
 
-            <div id="inner">
-<div style="position: relative; height: 30vh;">
-    <div style="position: absolute; bottom: 5px;">
-	    <p class="tagline__text wide-letter-spacing">
-	    <a href="./faq.html"; style="color:white">
-                Whitepaper     </a>
-	    </p>
+    <div class="bufferTop"></div>
+    <h1>THE BACKBONE OF BULLSHIT IS HERE</h1>
+    <div class="bufferBottomSmall"></div>
+
+
+        <section>
+            <div class="messageBG">
+                <div class="message" id='currentText'></div>
+            </div>
+        </section>
+    <div class="bufferBottom"></div>
+
+
+    <section id="inputElements" class="money">
+        <h2> This could be your message. Pay more than the previous idiot. </h2>
+
+        <input type="text" id="inputText" , placeholder="Put your fucking message here..."></input>
+        <div>
+            <button onclick="send()" id="blueB">Blockchain it!</button>
+            <button onclick="send()" id="greenB">I'm feeling lucky</button>
+            <h2 id='mostSent'>placeholder $$$</h2>
+        </div>
+    </section>
+
+
+    <div class="whitePaper">
+        <a href="./whitepaper.pdf" ; style="color:white"> Whitepaper </a>
     </div>
-</div>
-	    </div>
-</body>
 
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
@@ -55,31 +47,33 @@
 <script>
     //  document.addEventListener('DOMContentLoaded', function() {
     //  });
-    window.onload = function() {
+    window.onload = function () {
         if (typeof Web3 === 'undefined') {
             document.getElementById('meta-mask-required').innerHTML = 'You need <a href="https://metamask.io/">MetaMask</a> browser plugin to run this example'
         }
     }
 
     function send() {
-	var amount = window.prompt("ETH:")
-	alert(amount)
+        var amount = window.prompt("ETH:")
+        alert(amount)
         inputText = document.getElementById("inputText").value
         if (inputText.length > 50) {
-            alert("Maximum text size is 64 characters!")
+            alert("Maximum text size is 50 characters!")
         } else {
             abi = JSON.parse('[ { "constant": false, "inputs": [ { "name": "newText", "type": "string" } ], "name": "setText", "outputs": [ { "name": "", "type": "bool" } ], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [], "name": "mostSent", "outputs": [ { "name": "", "type": "uint256", "value": "1000000000000000000" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "currentText", "outputs": [ { "name": "", "type": "string", "value": "awefjasdfaj" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" } ]')
             contractInstance = web3.eth.contract(abi).at('0x06eA246C7Ea2E6952c65f50e1b00059aAC626753');
             contractInstance.setText(inputText, {
                 from: web3.eth.accounts[0],
                 gas: 4000000,
-		gasPrice: web3.toWei('5', 'gwei'),
-                value: amount*10**18
-            }, function(error, a) {
+                gasPrice: web3.toWei('5', 'gwei'),
+                value: amount * 10 ** 18
+            }, function (error, a) {
                 console.log(error, a)
             })
         }
     }
 </script>
+</body>
+
 
 </html>

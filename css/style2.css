@@ -1,0 +1,107 @@
+html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    color: white;
+    align-self: center;
+
+
+}
+
+body {
+    background-position: center;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 1rem;
+}
+h2 {
+    font-size: 0.5rem;
+    font-weight:200;
+    color:lightgrey;
+    align-self: center;
+    text-align: center;
+}
+
+input {
+    min-width: 100%;
+    min-height: 3em;
+    border: 4px solid cornflowerblue;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: grey;
+    padding-left: 1em;
+}
+
+.bufferBottom {
+    padding-bottom: 6em;
+}
+
+.bufferBottomSmall {
+    padding-bottom: 5em;
+}
+.bufferTop {
+    padding-top: 0.75em;
+}
+
+.message {
+    font-family: "Arial Black";
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.messageBG {
+    align-self: center;
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.6);
+}
+.money {
+
+}
+.whitePaper {
+    min-height:10vh;
+    width: 100%;
+    padding-top: 3em;
+    align-self: flex-end;
+    text-align: center;
+}
+
+button {
+    padding: 50px 0;
+    text-align: center;
+    font-family: 'Impact', sans-serif;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0px 40px;
+    display: inline-block;
+    margin: 2px 30px;
+    line-height: 2.2em;
+    letter-spacing: 1.5px;
+    font-size: 1em;
+    outline: none;
+    position: relative;
+    font-size: 14px;
+    border: 1.5px solid #fff;
+    background-color: transparent;
+    border-radius: 0 0 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#blueB {
+    background:cornflowerblue;
+}
+#greenB {
+    background: mediumspringgreen;
+}
+
+.snip1544:hover,
+.snip1544.hover {
+    border-color: gray;
+}
+}
+
