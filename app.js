@@ -8,6 +8,5 @@ const mostSent=document.getElementById('mostSent')
 
 const mostSentContract = contractInstance.mostSent() / 10**18
 
-mostSent.innerHTML =  "Current price: " + (mostSentContract).toString() + " ETH"
-currentText.innerHTML = "\"" + contractInstance.currentText() + "\""
-amount.value = mostSentContract + 0.01
+mostSent.innerText =  "Current price: " + (mostSentContract).toString() + " ETH"
+currentText.innerText = "\"" + contractInstance.currentText() + "\""
