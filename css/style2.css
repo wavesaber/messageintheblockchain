@@ -17,7 +17,13 @@ body {
 }
 
 h1 {
-    font-size: 1rem;
+   font-size: 1rem;
+   margin:6px;
+}
+.subtitle {
+   color:cornflowerblue;
+   font-style: italic;
+   font-size:0.75em;
 }
 h2 {
     font-size: 0.5rem;
