@@ -51,27 +51,29 @@
     //  document.addEventListener('DOMContentLoaded', function() {
     //  });
     window.onload = function () {
-        if (typeof web3 === 'undefined') {
-            alert('You need the https://metamask.io/ browser plugin to be able to experience the blockchain vibes :)')
-        }
     }
 
     function send() {
-        var amount = window.prompt("ETH:")
-        inputText = document.getElementById("inputText").value
-        if (inputText.length > 50) {
-            alert("Maximum text size is 50 characters!")
-        } else {
-            abi = JSON.parse('[ { "constant": false, "inputs": [ { "name": "newText", "type": "string" } ], "name": "setText", "outputs": [ { "name": "", "type": "bool" } ], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [], "name": "mostSent", "outputs": [ { "name": "", "type": "uint256", "value": "1000000000000000000" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "currentText", "outputs": [ { "name": "", "type": "string", "value": "awefjasdfaj" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" } ]')
-            contractInstance = web3.eth.contract(abi).at('0x631c0D6f503C900e969C14d80A61D94e34cb0899');
-            contractInstance.setText(inputText, {
-                from: web3.eth.accounts[0],
-                gas: 4000000,
-                gasPrice: web3.toWei('2', 'gwei'),
-                value: amount * 10 ** 18
-            }, function (error, a) {
-                console.log(error, a)
-            })
+        if (typeof web3 === 'undefined') {
+            alert('You need the https://metamask.io/ browser plugin to be able to experience the blockchain vibes :)')
+        }
+	else {
+		var amount = window.prompt("ETH:")
+		inputText = document.getElementById("inputText").value
+		if (inputText.length > 50) {
+		    alert("Maximum text size is 50 characters!")
+		} else {
+		    abi = JSON.parse('[ { "constant": false, "inputs": [ { "name": "newText", "type": "string" } ], "name": "setText", "outputs": [ { "name": "", "type": "bool" } ], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": true, "inputs": [], "name": "mostSent", "outputs": [ { "name": "", "type": "uint256", "value": "1000000000000000000" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "currentText", "outputs": [ { "name": "", "type": "string", "value": "awefjasdfaj" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" } ]')
+		    contractInstance = web3.eth.contract(abi).at('0x631c0D6f503C900e969C14d80A61D94e34cb0899');
+		    contractInstance.setText(inputText, {
+			from: web3.eth.accounts[0],
+			gas: 4000000,
+			gasPrice: web3.toWei('2', 'gwei'),
+			value: amount * 10 ** 18
+		    }, function (error, a) {
+			console.log(error, a)
+		    })
+            }
         }
     }
 </script>
