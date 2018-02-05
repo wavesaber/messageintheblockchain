@@ -19,6 +19,8 @@ body {
 h1 {
    font-size: 1rem;
    margin:6px;
+   align-self: center;
+   text-align: center;
 }
 .subtitle {
    color:cornflowerblue;
@@ -59,6 +61,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     font-family: "Arial Black";
     font-style: italic;
     font-size: 1.5rem;
+    align-self: center;
+    text-align: center;
 }
 
 .messageBG {
@@ -85,7 +89,7 @@ button {
     cursor: pointer;
     padding: 0px 40px;
     display: inline-block;
-    margin: 2px 30px;
+    margin: 2px;
     line-height: 2.2em;
     letter-spacing: 1.5px;
     font-size: 1em;

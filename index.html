@@ -28,12 +28,14 @@
 
 
     <section id="inputElements" class="money">
-        <h2> Put your message here by paying more than the previous idiot. It's all on the blockchain. </h2>
+        <h2>Put your message here by paying more than the previous idiot. It's all on the blockchain.</h2>
 
         <input type="text" id="inputText" , placeholder="Put your fucking message here..."></input>
         <div>
-            <button onclick="send()" id="blueB">Blockchain it!</button>
-            <button onclick="send()" id="greenB">I'm feeling lucky</button>
+	    <div style="display:flex; flex-direction:row; justify-content: space-around">
+		    <button onclick="send()" id="blueB">Blockchain it!</button>
+		    <button onclick="send()" id="greenB">I'm feeling lucky</button>
+	    </div>
             <h2 id='mostSent'>placeholder $$$</h2>
         </div>
     </section>
